@@ -1,0 +1,21 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Outer Circle -->
+  <circle cx="200" cy="200" r="180" stroke="#e3e5c4" stroke-width="10" fill="none" />
+
+  <!-- Letter H -->
+  <!-- Left vertical line -->
+  <rect x="90" y="100" width="40" height="200" fill="#e3e5c4" />
+  
+  <!-- Right vertical line -->
+  <rect x="270" y="100" width="40" height="200" fill="#e3e5c4" />
+  
+  <!-- Middle connecting line -->
+  <rect x="130" y="180" width="140" height="40" fill="#e3e5c4" />
+  
+  <!-- Decorative Diagonal Lines -->
+  <line x1="90" y1="100" x2="140" y2="60" stroke="#e3e5c4" stroke-width="10" />
+  <line x1="310" y1="100" x2="260" y2="60" stroke="#e3e5c4" stroke-width="10" />
+  <line x1="90" y1="300" x2="140" y2="340" stroke="#e3e5c4" stroke-width="10" />
+  <line x1="310" y1="300" x2="260" y2="340" stroke="#e3e5c4" stroke-width="10" />
+</svg>
