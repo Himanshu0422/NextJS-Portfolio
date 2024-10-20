@@ -1,12 +1,17 @@
 import { MutableRefObject, useEffect, useRef } from "react";
 import { gsap, Linear } from "gsap";
-import { IDesktop, isSmallScreen } from "@/app/page";
 import styles from "./styles.module.css";
 
 const CURSOR_STYLES = {
   CURSOR: "fixed hidden bg-white w-4 h-4 select-none pointer-events-none z-50",
   FOLLOWER: "fixed hidden h-8 w-8 select-none pointer-events-none z-50",
 };
+
+
+export const isSmallScreen = (): boolean => document.body.clientWidth < 767;
+export interface IDesktop {
+  isDesktop: boolean;
+}
 
 const Cursor = ({ isDesktop }: IDesktop) => {
   const cursor: MutableRefObject<HTMLDivElement | null> = useRef(null);

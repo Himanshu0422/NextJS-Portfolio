@@ -11,15 +11,10 @@ import { useEffect, useState } from "react";
 
 gsap.registerPlugin(useGSAP);
 
-export const isSmallScreen = (): boolean => document.body.clientWidth < 767;
-export interface IDesktop {
-  isDesktop: boolean;
-}
-
 const DEBOUNCE_TIME = 100;
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isDesktop, setisDesktop] = useState(true);
 
   let timer: ReturnType<typeof setTimeout> | null = null;
