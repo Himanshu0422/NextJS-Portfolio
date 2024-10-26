@@ -3,11 +3,11 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 import { FaBars, FaPlay, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 
-const NAV_ITEMS = [
+export const NAV_ITEMS = [
   { label: "home", to: "home" },
   { label: "about", to: "about" },
   { label: "projects", to: "projects" },
@@ -16,8 +16,12 @@ const NAV_ITEMS = [
   { label: "contact", to: "contact" },
 ];
 
-const Navbar = () => {
-  const [isMenu, setIsMenu] = useState(false);
+export interface Props {
+  isMenu: boolean;
+  setIsMenu?: Dispatch<SetStateAction<boolean>>;
+}
+
+const Navbar = ({isMenu, setIsMenu}: Props) => {
   const navbarRef = useRef(null);
   const menuButtonRef = useRef(null);
 
@@ -38,7 +42,7 @@ const Navbar = () => {
   };
 
   const toggleMenu = () => {
-    setIsMenu(!isMenu);
+    setIsMenu!(!isMenu);
 
     gsap.to(menuButtonRef.current, {
       rotation: isMenu ? 0 : 180,
@@ -104,7 +108,7 @@ const Navbar = () => {
         </nav>
 
         {/* Right Play Button */}
-        <button className="max-sm:hidden flex items-center justify-center h-10 w-10 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition duration-300">
+        <button className="max-sm:hidden link flex items-center justify-center h-10 w-10 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition duration-300">
           <FaPlay color="#e3e5c4" />
         </button>
         

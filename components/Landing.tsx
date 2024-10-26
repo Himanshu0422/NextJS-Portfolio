@@ -37,7 +37,7 @@ const Landing = () => {
   };
 
   return (
-    <div id="landing" className="flex h-screen">
+    <div id="landing" className="bg flex h-screen">
       <div className="flex flex-1 items-center justify-center text-center">
         <div className="h-[50%] flex flex-col justify-center">
           <Logo />

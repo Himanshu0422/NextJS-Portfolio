@@ -1,0 +1,12 @@
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
