@@ -9,9 +9,9 @@ import { FaBars, FaPlay, FaTimes } from "react-icons/fa";
 export const NAV_ITEMS = [
   { label: "home"},
   { label: "about"},
-  { label: "projects"},
   { label: "experience"},
   { label: "skills"},
+  { label: "projects"},
   { label: "contact"},
 ];
 
@@ -85,7 +85,7 @@ const Navbar = ({ isMenu, setIsMenu, navigateToSection }: Props) => {
               <a
                 href="https://drive.google.com/file/d/1J1BYHtDQOCwT_XzkzHbzS7hpbIdbisrh/view?usp=sharing"
                 target="__blank"
-                className="text-[#e3e5c4] relative"
+                className="text-[#e3e5c4] relative link"
               >
                 resume
               </a>
