@@ -1,12 +1,8 @@
 "use client";
 
 import {
-  FaCss3,
-  FaGitAlt,
-  FaHtml5,
-  FaJsSquare,
-  FaNodeJs,
   FaDocker,
+  FaNodeJs
 } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiExpress, SiMongodb, SiPrisma } from "react-icons/si";
