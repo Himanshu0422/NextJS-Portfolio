@@ -59,16 +59,16 @@ export default function Home() {
       <Sidebar isMenu={isMenu} />
       <Navbar isMenu={isMenu} setIsMenu={setIsMenu} navigateToSection={navigateToSection} />
       <Social />
-      <section className="h-screen w-full top-0 fixed">
+      <section className="first h-screen w-full top-0 fixed">
         <Landing />
       </section>
-      <section className="h-screen w-full top-0 fixed invisible">
+      <section className="second h-screen w-full top-0 fixed invisible">
         <About />
       </section>
-      <section className="h-screen w-full top-0 fixed invisible">
+      <section className="third h-screen w-full top-0 fixed invisible">
         <Experience />
       </section>
-      <section className="h-screen w-full top-0 fixed invisible">
+      <section className="fourth h-screen w-full top-0 fixed invisible">
         <Skills />
       </section>
     </>
