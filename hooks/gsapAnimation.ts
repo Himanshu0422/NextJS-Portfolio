@@ -11,7 +11,7 @@ const useScrollNavigation = (
 
   const gotoSection = (index: number, direction: number) => {
     console.log(currentIndex, 'currentIndex');
-    if (index < 0 || index >= sections.length) return;
+    if (animating || index < 0 || index >= sections.length) return;
 
     index = wrap(index);
     animating = true;
@@ -102,7 +102,7 @@ const useScrollNavigation = (
 
     gotoSection(nextIndex, direction);
 
-    const animationDuration = 1000;
+    const animationDuration = 1250;
     setTimeout(() => sequentialNavigate(targetIndex), animationDuration);
   };
 
