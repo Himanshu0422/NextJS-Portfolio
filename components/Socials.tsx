@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useEffect } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { SiLeetcode } from "react-icons/si";
@@ -27,7 +28,26 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const Social = () => {
+const Social = ({currentIndex, previousIndex}: {currentIndex: number, previousIndex:number}) => {
+
+  useEffect(() => {
+    if(currentIndex === 4) {
+      gsap.to('.social', {
+        y: 200,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: 'power2.out'
+      })
+    } else if (currentIndex === 3 && previousIndex === 4) {
+      gsap.fromTo(
+        ".social",
+        { y: 200, opacity: 0 },
+        { y: 0, opacity: 1, delay: 0.5, duration: 1.5, ease: "power3.out" }
+      );
+    }
+  }, [currentIndex]);
+
   useGSAP(() => {
     gsap.fromTo(
       ".social",

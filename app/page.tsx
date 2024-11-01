@@ -1,6 +1,7 @@
 "use client";
 
 import About from "@/components/About/About";
+import ContactSection from "@/components/Contact";
 import Cursor from "@/components/Cursor";
 import Experience from "@/components/Experience";
 import Landing from "@/components/Landing";
@@ -13,6 +14,7 @@ import useScrollNavigation from "@/hooks/gsapAnimation";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 gsap.registerPlugin(Observer);
 const DEBOUNCE_TIME = 100;
@@ -22,6 +24,8 @@ export default function Home() {
   const [isDesktop, setIsDesktop] = useState(true);
   const [isMenu, setIsMenu] = useState(false);
   const [navigateToSection, setNavigateToSection] = useState<any>();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
 
   let timer: ReturnType<typeof setTimeout> | null = null;
 
@@ -47,7 +51,7 @@ export default function Home() {
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>("section");
     const divs = document.querySelectorAll<HTMLElement>(".bg");
-    const { navigateToSection: navigateFunc } = useScrollNavigation(sections, divs);
+    const { navigateToSection: navigateFunc } = useScrollNavigation(sections, divs, setCurrentIndex, setPreviousIndex);
     setNavigateToSection(() => navigateFunc);
   }, [loading]);
 
@@ -55,10 +59,11 @@ export default function Home() {
     <Preloader setLoading={setLoading} />
   ) : (
     <>
+      <Toaster position="top-center" />
       <Cursor isDesktop={isDesktop} />
       <Sidebar isMenu={isMenu} />
       <Navbar isMenu={isMenu} setIsMenu={setIsMenu} navigateToSection={navigateToSection} />
-      <Social />
+      <Social currentIndex={currentIndex} previousIndex={previousIndex} />
       <section className="first h-screen w-full top-0 fixed">
         <Landing />
       </section>
@@ -70,6 +75,9 @@ export default function Home() {
       </section>
       <section className="fourth h-screen w-full top-0 fixed invisible">
         <Skills />
+      </section>
+      <section className="fifth h-screen w-full top-0 fixed invisible">
+        <ContactSection />
       </section>
     </>
   );

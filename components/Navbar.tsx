@@ -11,8 +11,8 @@ export const NAV_ITEMS = [
   { label: "about"},
   { label: "experience"},
   { label: "skills"},
-  { label: "projects"},
   { label: "contact"},
+  { label: "projects"},
 ];
 
 export interface Props {
