@@ -99,7 +99,8 @@ const useScrollNavigation = (
         tl.fromTo(
           "#title h2",
           { opacity: 0, y: 40, skewY: 5 },
-          { opacity: 1, y: 0, skewY: 0, duration: 1, ease: "power3.out" }
+          { opacity: 1, y: 0, skewY: 0, duration: 1, ease: "power3.out" },
+          "-=1"
         );
 
         tl.fromTo(
@@ -111,7 +112,8 @@ const useScrollNavigation = (
         tl.fromTo(
           ".contact-card",
           { opacity: 0, y: 40, },
-          { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power2.out" }
+          { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power2.out" },
+          "-=1"
         );
 
         tl.fromTo(
@@ -123,7 +125,8 @@ const useScrollNavigation = (
         tl.fromTo(
           "#social-icons > *",
           { opacity: 0, scale: 0, y: 50 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power2.out" }
+          { opacity: 1, scale: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power2.out" },
+          "-=0.5"
         );
       }
       gsap.set(sections[currentIndex], { zIndex: 0 });
