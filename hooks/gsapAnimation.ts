@@ -3,14 +3,15 @@ import { Observer } from "gsap/Observer";
 
 const useScrollNavigation = (
   sections: NodeListOf<HTMLElement>,
-  divs: NodeListOf<HTMLElement>
+  divs: NodeListOf<HTMLElement>,
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>,
+  setPreviousIndex: React.Dispatch<React.SetStateAction<number>>
 ) => {
   let currentIndex = 0;
   const wrap = gsap.utils.wrap(0, sections.length);
   let animating = false;
 
   const gotoSection = (index: number, direction: number) => {
-    console.log(currentIndex, 'currentIndex');
     if (animating || index < 0 || index >= sections.length) return;
 
     index = wrap(index);
@@ -80,6 +81,50 @@ const useScrollNavigation = (
           stagger: 0.1,
           delay: window.innerWidth < 768 ? 1 : 0
         });
+      } else if (index === 4) {
+        const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+
+        tl.fromTo(
+          "#container",
+          { opacity: 0, filter: "blur(15px)", scale: 0 },
+          { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.5 }
+        );
+
+        tl.fromTo(
+          ".absolute-bg",
+          { opacity: 0, scale: 0.5 },
+          { opacity: 0.25, scale: 1, duration: 2, stagger: 0.15, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          "#title h2",
+          { opacity: 0, y: 40, skewY: 5 },
+          { opacity: 1, y: 0, skewY: 0, duration: 1, ease: "power3.out" }
+        );
+
+        tl.fromTo(
+          "#title p",
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        );
+
+        tl.fromTo(
+          ".contact-card",
+          { opacity: 0, y: 40, },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          "#form > *",
+          { opacity: 0, x: 30, rotateY: -5 },
+          { opacity: 1, x: 0, rotateY: 0, duration: 1, stagger: 0.1, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          "#social-icons > *",
+          { opacity: 0, scale: 0, y: 50 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power2.out" }
+        );
       }
       gsap.set(sections[currentIndex], { zIndex: 0 });
       tl.to(divs[currentIndex], { yPercent: -100 * dFactor }).set(
@@ -90,8 +135,9 @@ const useScrollNavigation = (
     gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
     tl.fromTo(divs[index], { yPercent: 100 * dFactor }, { yPercent: 0 }, 0);
 
+    setPreviousIndex(currentIndex);
     currentIndex = index;
-    console.log(currentIndex, 'updatedcurrentIndex');
+    setCurrentIndex(currentIndex);
   };
 
   const sequentialNavigate = (targetIndex: number) => {
@@ -115,7 +161,7 @@ const useScrollNavigation = (
     preventDefault: true,
   });
 
-  return { navigateToSection: sequentialNavigate };
+  return { navigateToSection: sequentialNavigate, currentIndex };
 };
 
 export default useScrollNavigation;
