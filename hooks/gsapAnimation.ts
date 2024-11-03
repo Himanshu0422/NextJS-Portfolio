@@ -39,7 +39,7 @@ const useScrollNavigation = (
           { scale: 0.5, x: -200, opacity: 0 },
           { scale: 1, x: 0, opacity: 1, duration: 1, delay: 0.75, ease: "power2.out" }
         );
-      } else if (index === 2) {
+      } else if (index === 3) {
         gsap.fromTo(
           ".card",
           { scale: 0.2, opacity: 0, y: 200, x: -100 },
@@ -53,7 +53,7 @@ const useScrollNavigation = (
             ease: "elastic.out(1, 0.5)",
           }
         );
-      } else if (index === 3) {
+      } else if (index === 4) {
         const categories = document.querySelectorAll('.skill-category');
         const cards = document.querySelectorAll('.skill-card');
         const tl = gsap.timeline();
@@ -81,7 +81,7 @@ const useScrollNavigation = (
           stagger: 0.1,
           delay: window.innerWidth < 768 ? 1 : 0
         });
-      } else if (index === 4) {
+      } else if (index === 5) {
         const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
         tl.fromTo(

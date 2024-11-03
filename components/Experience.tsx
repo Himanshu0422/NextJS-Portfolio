@@ -1,5 +1,3 @@
-"use client";
-
 import { FaAndroid, FaReact, FaStripe } from "react-icons/fa";
 import { SiExpo, SiFirebase, SiKotlin } from "react-icons/si";
 
@@ -18,7 +16,7 @@ export default function Experience() {
         <div className="space-y-4 mb-6">
           <p className="text-gray-300">
             Implemented <b>Brother Print SDK</b> on native Android (
-            <b>Kotlin</b>) for a Y Combinator startup, integrating it into an{" "}
+            <b>Kotlin</b>) for a <b>YCombinator startup</b>, integrating it into an{" "}
             <b>Expo</b> app to enable seamless printing.
           </p>
           <p className="text-gray-300">

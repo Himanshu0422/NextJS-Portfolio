@@ -1,5 +1,3 @@
-"use client"
-
 import { Expo, gsap } from "gsap";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
