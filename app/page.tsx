@@ -7,6 +7,7 @@ import Experience from "@/components/Experience";
 import Landing from "@/components/Landing";
 import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
+import Projects from "@/components/Projects/Projects";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Skills from "@/components/Skills";
 import Social from "@/components/Socials";
@@ -20,7 +21,7 @@ gsap.registerPlugin(Observer);
 const DEBOUNCE_TIME = 100;
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
   const [isMenu, setIsMenu] = useState(false);
   const [navigateToSection, setNavigateToSection] = useState<any>();
@@ -71,12 +72,15 @@ export default function Home() {
         <About />
       </section>
       <section className="third h-screen w-full top-0 fixed invisible">
-        <Experience />
+        <Projects />
       </section>
       <section className="fourth h-screen w-full top-0 fixed invisible">
-        <Skills />
+        <Experience />
       </section>
       <section className="fifth h-screen w-full top-0 fixed invisible">
+        <Skills />
+      </section>
+      <section className="sixth h-screen w-full top-0 fixed invisible">
         <ContactSection />
       </section>
     </>
