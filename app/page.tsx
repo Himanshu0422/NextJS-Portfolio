@@ -21,7 +21,7 @@ gsap.registerPlugin(Observer);
 const DEBOUNCE_TIME = 100;
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isDesktop, setIsDesktop] = useState(true);
   const [isMenu, setIsMenu] = useState(false);
   const [navigateToSection, setNavigateToSection] = useState<any>();
