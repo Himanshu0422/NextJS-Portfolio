@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "image": "airwave.png",
+    "name": "Project Five",
+    "techStack": ["React", "Node.js", "MongoDB"],
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 2,
+    "image": "airwave.png",
+    "name": "Project Six",
+    "techStack": ["Vue", "Express", "MySQL"],
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 3,
+    "image": "airwave.png",
+    "name": "Project Seven",
+    "techStack": ["Vue", "Express", "MySQL"],
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "demo": "",
+    "password": ""
+  }
+]

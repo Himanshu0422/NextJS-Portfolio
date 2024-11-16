@@ -39,6 +39,33 @@ const useScrollNavigation = (
           { scale: 0.5, x: -200, opacity: 0 },
           { scale: 1, x: 0, opacity: 1, duration: 1, delay: 0.75, ease: "power2.out" }
         );
+      } else if (index === 2) {
+        const tl = gsap.timeline();
+
+        gsap.set(`.card-0`, {
+          opacity: 0,
+          x: -100,
+          zIndex: -1
+        });
+
+        tl.fromTo(
+          `.image-container-0`,
+          { zIndex: 2, y: 50, opacity: 0 },
+          { zIndex: 2, y: 0, opacity: 1, duration: 0.6, delay: 1, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          `.card-0`,
+          { opacity: 0, x: -50, zIndex: -1 },
+          { opacity: 1, x: 0, zIndex: 1, duration: 1, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          `.text-content`,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.15 },
+          "-=0.4"
+        );
       } else if (index === 3) {
         gsap.fromTo(
           ".card",
