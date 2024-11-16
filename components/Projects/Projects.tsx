@@ -1,154 +1,176 @@
-import { useEffect, useRef } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import "./styles.css";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import gsap from "gsap";
-
-const projects = [
-  {
-    id: 1,
-    image:
-      "https://bmw.scene7.com/is/image/BMW/g82_cs_driving-dynamics_fb?qlt=80&wid=1024&fmt=webp",
-    name: "Project One",
-    techStack: ["React", "Node.js", "MongoDB"],
-    description: "Description of Project One.",
-  },
-  {
-    id: 2,
-    image:
-      "https://bmw.scene7.com/is/image/BMW/g82_cs_driving-dynamics_fb?qlt=80&wid=1024&fmt=webp",
-    name: "Project Two",
-    techStack: ["Vue", "Express", "MySQL"],
-    description: "Description of Project Two.",
-  },
-  {
-    id: 3,
-    image:
-      "https://bmw.scene7.com/is/image/BMW/g82_cs_driving-dynamics_fb?qlt=80&wid=1024&fmt=webp",
-    name: "Project Three",
-    techStack: ["Vue", "Express", "MySQL"],
-    description: "Description of Project Two.",
-  },
-  {
-    id: 4,
-    image:
-      "https://bmw.scene7.com/is/image/BMW/g82_cs_driving-dynamics_fb?qlt=80&wid=1024&fmt=webp",
-    name: "Project Five",
-    techStack: ["Vue", "Express", "MySQL"],
-    description: "Description of Project Two.",
-  },
-];
+import { useEffect, useState } from "react";
+import frontendProjects from "./frontendProjects.json";
+import fullstackProjects from "./fullstackProjects.json";
+import ParticlesBackground from "./ParticlesBackground";
 
 export default function Projects() {
-  const sliderRef = useRef<any>(null);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "20px",
-    className: "center",
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  const next = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const previous = () => {
-    sliderRef.current.slickPrev();
-  };
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [projectType, setProjectType] = useState("fullstack");
 
   useEffect(() => {
-    gsap.fromTo(
-      ".card",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: "expo.in", stagger: 0.2 }
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    gsap.set(`.card-${current}`, {
+      opacity: 0,
+      x: -100,
+      zIndex: -1,
+    });
+
+    tl.fromTo(
+      `.image-container-${current}`,
+      { zIndex: 2, y: 50, opacity: 0 },
+      {
+        zIndex: 2,
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        delay: 0.3,
+        ease: "power2.out",
+      }
     );
-  }, []);
+
+    tl.fromTo(
+      `.card-${current}`,
+      { opacity: 0, x: -50, zIndex: -1 },
+      { opacity: 1, x: 0, zIndex: 1, duration: 1, ease: "power2.out" }
+    );
+
+    tl.fromTo(
+      `.card-${current} .text-content`,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.15 },
+      "-=0.4"
+    );
+  }, [current]);
+
+  const projects =
+    projectType === "fullstack" ? fullstackProjects : frontendProjects;
 
   return (
     <div className="bg bg-black flex flex-col justify-center items-center min-h-screen p-4 relative">
-      <div className="relative w-[85%] mx-auto slider-container">
-        <Slider
-          ref={sliderRef}
-          {...settings}
-          className="flex justify-center items-center h-[80%]"
+      <ParticlesBackground />
+      <div className="flex space-x-4 mb-20">
+        <button
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg border ${
+            projectType === "fullstack"
+              ? "bg-[#d6d7c9] text-gray-900 border-[#d6d7c9]"
+              : "bg-transparent text-[#e3e5c4] border-gray-800"
+          } hover:bg-[#e3e5c4] hover:text-gray-900 hover:shadow-md`}
+          onClick={() => setProjectType("fullstack")}
         >
-          {projects.map((project) => (
-            <div key={project.id} className="my-10 card transition-transform transform hover:scale-105 hover:shadow-2xl duration-300">
-              <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex-1 border border-gray-800">
-                <div className="relative h-full rounded-2xl overflow-hidden group">
+          Fullstack Projects
+        </button>
+        <button
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg border ${
+            projectType === "frontend"
+              ? "bg-[#d6d7c9] text-gray-900 border-[#d6d7c9]"
+              : "bg-transparent text-[#e3e5c4] border-gray-800"
+          } hover:bg-[#e3e5c4] hover:text-gray-900 hover:shadow-md`}
+          onClick={() => setProjectType("frontend")}
+        >
+          Frontend Projects
+        </button>
+      </div>
+      <Carousel
+        className="max-w-[80%]"
+        opts={{
+          align: "center",
+          loop: true,
+        }}
+        setApi={setApi}
+      >
+        <CarouselContent>
+          {projects.map((project, index) => (
+            <CarouselItem
+              key={index}
+              className="flex items-center justify-center"
+            >
+              <div className="flex items-center text-[#e3e5c4] w-[90%]">
+                <div
+                  className={`overflow-hidden w-[45%] z-10 image-container-${index}`}
+                >
                   <img
                     src={project.image}
-                    alt={project.name}
-                    className="rounded-2xl object-cover"
+                    alt="project-screenshot"
+                    className="object-cover h-[460px] transition-transform duration-500 transform hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-70"></div>
                 </div>
-                <div className="p-6 backdrop-blur-sm bg-gray-900/30">
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: "#e3e5c4" }}>
+                <div
+                  className={`bg-gray-900 w-[55%] p-8 card-${index} h-full`}
+                  style={{ backgroundColor: "rgba(17, 24, 39, 0.7)", zIndex: -1 }}
+                >
+                  <h2 className="text-4xl font-bold mb-4 text-content">
                     {project.name}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {project.techStack.map((tech, index) => (
+                  </h2>
+                  <div className="flex flex-wrap gap-2 mb-6 text-gray-400 text-content">
+                    {project.techStack.map((tech, i) => (
                       <span
-                        key={index}
-                        className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700 hover:border-gray-600 transition-colors duration-300"
+                        key={i}
+                        className="px-3 py-1 bg-gray-800 rounded-full text-sm border border-gray-600 text-content"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <p className="text-gray-400 leading-relaxed">
+
+                  <h3 className="text-2xl font-semibold mb-2 text-content">
+                    {project.subHeading}
+                  </h3>
+                  <p className="text-gray-400 mb-6 text-content">
                     {project.description}
                   </p>
+
+                  <div className="flex items-center justify-between gap-4 text-content">
+                    <div className="flex gap-3">
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        className="px-4 py-2 bg-[#d6d7c9] text-gray-900 rounded-md font-semibold transition-colors duration-300 hover:bg-gray-300 text-content"
+                      >
+                        See Live
+                      </a>
+                      <a
+                        href={project.code}
+                        target="_blank"
+                        className="px-4 py-2 border border-[#d6d7c9] text-[#e3e5c4] rounded-md font-semibold transition-colors duration-300 hover:bg-gray-800 text-content"
+                      >
+                        Source Code
+                      </a>
+                    </div>
+                    <div className="text-sm">
+                      {project.demo && <div>Demo: {project.demo}</div>}
+                      {project.password && <div>Password: {project.password}</div>}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        </Slider>
-      </div>
-      <div className="text-center absolute left-10 top-1/2">
-        <button
-          className="bg-gray-900 p-4 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-gray-800 border border-gray-800 hover:border-gray-600"
-          onClick={previous}
-        >
-          <FaArrowLeft className="w-6 h-6" style={{ color: "#e3e5c4" }} />
-        </button>
-      </div>
-      <div className="text-center absolute top-1/2 right-10">
-        <button
-          className="bg-gray-900 p-4 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 hover:bg-gray-800 border border-gray-800 hover:border-gray-600"
-          onClick={next}
-        >
-          <FaArrowRight className="w-6 h-6" style={{ color: "#e3e5c4" }} />
-        </button>
-      </div>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }
