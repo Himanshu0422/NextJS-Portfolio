@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <svg
       id="logo"
-      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${styles.logo}`}
+      className={`max-sm:absolute max-sm:top-1/2 max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:-translate-y-1/2`}
       width="253"
       height="262"
       viewBox="0 0 253 262"

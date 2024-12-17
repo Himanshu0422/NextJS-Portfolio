@@ -50,11 +50,11 @@ const About = () => {
             crafting dynamic web applications and intuitive user interfaces.
             With expertise in programming languages such as C++, Java, and
             JavaScript, along with frameworks like React.js and Node.js, I focus
-            on delivering seamless user experiences. My commitment to minimalism
+            on delivering seamless user experiences. <span className="max-sm:hidden">My commitment to minimalism
             drives my design philosophy, allowing me to create solutions that
-            are both functional and aesthetically pleasing. I thrive in
+            are both functional and aesthetically pleasing.I thrive in
             collaborative environments and am always eager to tackle new
-            challenges in coding and design.
+            challenges in coding and design.</span>
           </p>
         </div>
       </div>

@@ -103,7 +103,7 @@ const Contact = () => {
 
       <div
         id="container"
-        className="w-full max-w-6xl bg-[#111116] rounded-2xl shadow-2xl shadow-black/50 p-12 relative backdrop-blur-sm"
+        className="w-full max-w-6xl bg-[#111116] rounded-2xl shadow-2xl shadow-black/50 p-4 md:p-12 relative backdrop-blur-sm"
       >
         <div className="relative grid lg:grid-cols-2 gap-16">
           <div className="space-y-12">
@@ -115,8 +115,8 @@ const Contact = () => {
                 </span>
               </h2>
               <p className="text-base md:text-lg text-gray-400 max-w-md">
-                Have a project in mind? Get in touch and let's create something
-                extraordinary.
+                Have a project in mind? Get in touch<span className="max-sm:hidden"> and let's create something
+                extraordinary.</span>
               </p>
             </div>
 
@@ -125,10 +125,10 @@ const Contact = () => {
               {/* Email Link */}
               <a
                 href="mailto:himanshumittal035@gmail.com"
-                className="contact-card block p-6 bg-[#16161D] rounded-xl hover:bg-gradient-to-r hover:from-indigo-500/10 hover:to-violet-500/10 transition-all duration-500"
+                className="contact-card block p-4 md:p-6 bg-[#16161D] rounded-xl hover:bg-gradient-to-r hover:from-indigo-500/10 hover:to-violet-500/10 transition-all duration-500"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg">
+                  <div className="p-3 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg max-sm:hidden">
                     <AiOutlineMail className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -143,10 +143,10 @@ const Contact = () => {
               {/* Phone Link */}
               <a
                 href="tel:+916280341384"
-                className="contact-card block p-6 bg-[#16161D] rounded-xl hover:bg-gradient-to-r hover:from-fuchsia-500/10 hover:to-rose-500/10 transition-all duration-500"
+                className="contact-card block p-4 md:p-6 bg-[#16161D] rounded-xl hover:bg-gradient-to-r hover:from-fuchsia-500/10 hover:to-rose-500/10 transition-all duration-500"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-gradient-to-br from-fuchsia-500 to-rose-500 rounded-lg">
+                  <div className="p-3 bg-gradient-to-br from-fuchsia-500 to-rose-500 rounded-lg max-sm:hidden">
                     <AiOutlinePhone className="w-6 h-6 text-white" />
                   </div>
                   <div>

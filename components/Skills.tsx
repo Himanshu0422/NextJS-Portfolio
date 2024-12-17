@@ -11,12 +11,14 @@ import {
   SiTailwindcss,
   SiPrisma,
   SiFirebase,
+  SiTypescript
 } from "react-icons/si";
 
 type SkillName =
   | "C++"
   | "Java"
   | "JavaScript"
+  | "TypeScript"
   | "EJS"
   | "React.js"
   | "Next.js"
@@ -35,7 +37,7 @@ type SkillName =
   | "AWS";
 
 const skillCategories: Record<string, SkillName[]> = {
-  "Programming Languages": ["C++", "Java", "JavaScript"],
+  "Programming Languages": ["C++", "Java", "JavaScript", "TypeScript"],
   Frontend: [
     "React.js",
     "Next.js",
@@ -118,6 +120,7 @@ const iconMapping: Record<SkillName, JSX.Element> = {
   "C++": <span className="text-lg">C++</span>,
   Java: <span className="text-lg">Java</span>,
   JavaScript: <SiJavascript />,
+  TypeScript: <SiTypescript />,
   EJS: <span className="text-lg">EJS</span>,
   "React.js": <SiReact />,
   "Next.js": <SiNextdotjs />,
