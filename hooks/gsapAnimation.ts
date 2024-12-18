@@ -47,6 +47,9 @@ const useScrollNavigation = (
           x: -100,
           zIndex: -1
         });
+        gsap.set(`.card-0 .text-content-0`, {
+          opacity: 0
+        })
 
         tl.fromTo(
           `.image-container-0`,
@@ -61,7 +64,7 @@ const useScrollNavigation = (
         );
 
         tl.fromTo(
-          `.text-content`,
+          `.card-0 .text-content-0`,
           { opacity: 0, y: 50 },
           { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.15 },
           "-=0.4"
