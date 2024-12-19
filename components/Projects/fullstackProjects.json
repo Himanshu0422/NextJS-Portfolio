@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1732956332/Portfolio/Screenshot_2024-11-30_at_2.15.16_PM.png",
+    "name": "Air Wave",
+    "subHeading": "Flight Booking Website",
+    "techStack": ["React", "Node.js", "Express.js", "Redux", "MySQL", "Sequelize", "Redis", "PassportAuth", "Tailwind CSS"],
+    "description": "Created a responsive flight booking website with features for real-time flight search, booking management, and curated popular destinations. The platform provides personalized travel recommendations, highlights seasonal destinations, and offers an intuitive user interface for a smooth and efficient booking experience.",
+    "live": "https://air-wave.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Flight-Booking",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 2,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1731248928/Portfolio/edunex_ninseg.png",
+    "name": "Edunex",
+    "subHeading": "Ed-Tech Platform",
+    "techStack": ["React", "Node.js", "Express.js", "ChartJs", "Redux", "MongoDB", "Tailwind CSS"],
+    "description": "Developed an online learning platform where teachers can upload and manage courses, while students can browse, purchase, and enroll in them. The platform provides an easy-to-use interface for both teachers and students, facilitating course creation, content delivery, and seamless transactions.",
+    "live": "https://edunex.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Edunex",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 3,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1732956078/Portfolio/Screenshot_2024-11-30_at_2.11.02_PM.png",
+    "name": "Challenges App",
+    "subHeading": "React and Javascript Challenges",
+    "techStack": ["React", "Node.js", "Express.js", "Redux", "MongoDB", "Tailwind CSS"],
+    "description": "Developed an interactive platform where users can participate in React and JavaScript challenges. The app features a seamless integration with CodeSandbox, allowing users to attempt problems directly in an embedded editor. It provides an engaging and dynamic environment for learners to test and improve their coding skills.",
+    "live": "https://challanges-app.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Challanges-App-Frontend",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 4,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1733639347/Portfolio/Screenshot_2024-12-08_at_11.58.44_AM_sujtqy.png",
+    "name": "Expense Tracker",
+    "description": "Take control of your finances like never before! Easily record your daily expenses, organize them by date, and gain valuable insights with a dynamic month-wise graph. Monitor spending patterns, identify trends, and make smarter financial decisions with a simple yet powerful tool.",
+    "techStack": ["React.js", "Node.js", "Express", "MongoDB"],
+    "live": "https://expense-tracker-red-seven.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Expense-Tracker",
+    "demo": "",
+    "password": ""
+  }
+]

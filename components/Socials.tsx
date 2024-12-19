@@ -31,7 +31,7 @@ const SOCIAL_LINKS = [
 const Social = ({currentIndex, previousIndex}: {currentIndex: number, previousIndex:number}) => {
 
   useEffect(() => {
-    if(currentIndex === 4) {
+    if(currentIndex === 5) {
       gsap.to('.social', {
         y: 200,
         opacity: 0,
@@ -39,7 +39,7 @@ const Social = ({currentIndex, previousIndex}: {currentIndex: number, previousIn
         delay: 0.5,
         ease: 'power2.out'
       })
-    } else if (currentIndex === 3 && previousIndex === 4) {
+    } else if (currentIndex === 4 && previousIndex === 5) {
       gsap.fromTo(
         ".social",
         { y: 200, opacity: 0 },

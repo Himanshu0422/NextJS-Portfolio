@@ -1,5 +1,3 @@
-"use client";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
@@ -9,10 +7,10 @@ import { FaBars, FaPlay, FaTimes } from "react-icons/fa";
 export const NAV_ITEMS = [
   { label: "home"},
   { label: "about"},
+  { label: "projects"},
   { label: "experience"},
   { label: "skills"},
   { label: "contact"},
-  { label: "projects"},
 ];
 
 export interface Props {

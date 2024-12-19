@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1732638416/Portfolio/Screenshot_2024-11-26_at_9.55.56_PM_fajeih.png",
+    "name": "Issue Tracker",
+    "subHeading": "Issue Tracking App",
+    "techStack": ["Next.js", "MySQL", "Prisma", "React Query", "NextAuth"],
+    "description": "The Issue Tracker App is a streamlined tool designed to help teams and individuals efficiently manage and track issues or tasks within a project. Users can log in using secure authentication powered by NextAuth.js, ensuring seamless and secure access.",
+    "live": "https://issue-tracker-xrsw.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Issue-Tracker",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 2,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1732964227/Portfolio/Screenshot_2024-11-30_at_4.27.01_PM_bowebi.png",
+    "name": "Think Board",
+    "subHeading": "Boost teamwork with seamless collaboration and communication",
+    "techStack": ["Next.js", "Convex", "Clerk", "LiveBlocks", "Socket", "Redis"],
+    "description": "Think Board is a collaborative workspace where organizations can create boards, organize tasks, and communicate effectively. Members can work together on boards and use the integrated chat feature to stay connected and productive. With real-time updates and seamless collaboration, it's the perfect tool for teams to innovate and achieve their goals.",
+    "live": "https://think-board-kappa.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Think-Board",
+    "demo": "",
+    "password": ""
+  },
+  {
+    "id": 3,
+    "image": "https://res.cloudinary.com/ds6nhnm3n/image/upload/v1733640145/Portfolio/Screenshot_2024-12-08_at_12.12.18_PM_ugrbwo.png",
+    "name": "Quizzical App",
+    "techStack": ["React.js"],
+    "description": "Challenge your general knowledge with Quizzical! This React.js app presents 5 random questions fetched from an API. Test your wits, submit your answers, and instantly find out which ones you got right or wrong. A fun and engaging way to learn and improve!",
+    "live": "https://quizzical-app-rouge.vercel.app/",
+    "code": "https://github.com/Himanshu0422/Quizzical-App",
+    "demo": "",
+    "password": ""
+  }
+]

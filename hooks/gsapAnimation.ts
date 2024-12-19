@@ -40,6 +40,36 @@ const useScrollNavigation = (
           { scale: 1, x: 0, opacity: 1, duration: 1, delay: 0.75, ease: "power2.out" }
         );
       } else if (index === 2) {
+        const tl = gsap.timeline();
+
+        gsap.set(`.card-0`, {
+          opacity: 0,
+          x: -100,
+          zIndex: -1
+        });
+        gsap.set(`.card-0 .text-content-0`, {
+          opacity: 0
+        })
+
+        tl.fromTo(
+          `.image-container-0`,
+          { zIndex: 2, y: 50, opacity: 0 },
+          { zIndex: 2, y: 0, opacity: 1, duration: 0.6, delay: 1, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          `.card-0`,
+          { opacity: 0, x: -50, zIndex: -1 },
+          { opacity: 1, x: 0, zIndex: 1, duration: 1, ease: "power2.out" }
+        );
+
+        tl.fromTo(
+          `.card-0 .text-content-0`,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.15 },
+          "-=0.4"
+        );
+      } else if (index === 3) {
         gsap.fromTo(
           ".card",
           { scale: 0.2, opacity: 0, y: 200, x: -100 },
@@ -53,7 +83,7 @@ const useScrollNavigation = (
             ease: "elastic.out(1, 0.5)",
           }
         );
-      } else if (index === 3) {
+      } else if (index === 4) {
         const categories = document.querySelectorAll('.skill-category');
         const cards = document.querySelectorAll('.skill-card');
         const tl = gsap.timeline();
@@ -81,7 +111,7 @@ const useScrollNavigation = (
           stagger: 0.1,
           delay: window.innerWidth < 768 ? 1 : 0
         });
-      } else if (index === 4) {
+      } else if (index === 5) {
         const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
         tl.fromTo(
