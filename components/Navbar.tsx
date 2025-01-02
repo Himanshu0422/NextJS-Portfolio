@@ -1,16 +1,16 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useRef } from "react";
-import { FaBars, FaPlay, FaTimes } from "react-icons/fa";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { FaBars, FaPause, FaPlay, FaTimes } from "react-icons/fa";
 
 export const NAV_ITEMS = [
-  { label: "home"},
-  { label: "about"},
-  { label: "projects"},
-  { label: "experience"},
-  { label: "skills"},
-  { label: "contact"},
+  { label: "home" },
+  { label: "about" },
+  { label: "projects" },
+  { label: "experience" },
+  { label: "skills" },
+  { label: "contact" },
 ];
 
 export interface Props {
@@ -22,6 +22,8 @@ export interface Props {
 const Navbar = ({ isMenu, setIsMenu, navigateToSection }: Props) => {
   const navbarRef = useRef(null);
   const menuButtonRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -49,8 +51,23 @@ const Navbar = ({ isMenu, setIsMenu, navigateToSection }: Props) => {
     });
   };
 
+  const togglePlayPause = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <header ref={navbarRef} className="w-full fixed top-0 py-4 px-10 z-50 opacity-0">
+    <header
+      ref={navbarRef}
+      className="w-full fixed top-0 py-4 px-10 z-50 opacity-0"
+    >
       <div className="flex justify-between items-center">
         <div className="flex items-center link">
           <Image
@@ -92,8 +109,11 @@ const Navbar = ({ isMenu, setIsMenu, navigateToSection }: Props) => {
           </ul>
         </nav>
 
-        <button className="max-sm:hidden link flex items-center justify-center h-10 w-10 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition duration-300">
-          <FaPlay color="#e3e5c4" />
+        <button
+          onClick={togglePlayPause}
+          className="max-sm:hidden link flex items-center justify-center h-10 w-10 p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition duration-300"
+        >
+          {isPlaying ? <FaPause color="#e3e5c4" /> : <FaPlay color="#e3e5c4" />}
         </button>
 
         <div className="sm:hidden link">
@@ -110,6 +130,7 @@ const Navbar = ({ isMenu, setIsMenu, navigateToSection }: Props) => {
           </button>
         </div>
       </div>
+      <audio ref={audioRef} src="/music.mp3" preload="auto" loop></audio>
     </header>
   );
 };
