@@ -12,6 +12,8 @@ import frontendProjects from "./frontendProjects.json";
 import fullstackProjects from "./fullstackProjects.json";
 import ParticlesBackground from "./ParticlesBackground";
 
+let firstTime = true;
+
 export default function Projects() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -37,6 +39,10 @@ export default function Projects() {
 
   useEffect(() => {
     if (isMobile) return;
+    if (firstTime) {
+      firstTime = false;
+      return;
+    }
 
     const tl = gsap.timeline();
 
@@ -121,7 +127,9 @@ export default function Projects() {
                   <h3 className="text-lg font-semibold mb-2">
                     {project.subHeading}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.techStack.map((tech, i) => (
                       <span

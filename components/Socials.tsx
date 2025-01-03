@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { SiLeetcode } from "react-icons/si";
 
-const SOCIAL_LINKS = [
+export const SOCIAL_LINKS = [
   {
     href: "https://github.com/himanshu0422",
     label: "Github",
@@ -28,17 +28,22 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const Social = ({currentIndex, previousIndex}: {currentIndex: number, previousIndex:number}) => {
-
+const Social = ({
+  currentIndex,
+  previousIndex,
+}: {
+  currentIndex: number;
+  previousIndex: number;
+}) => {
   useEffect(() => {
-    if(currentIndex === 5) {
-      gsap.to('.social', {
+    if (currentIndex === 5) {
+      gsap.to(".social", {
         y: 200,
         opacity: 0,
         duration: 1,
         delay: 0.5,
-        ease: 'power2.out'
-      })
+        ease: "power2.out",
+      });
     } else if (currentIndex === 4 && previousIndex === 5) {
       gsap.fromTo(
         ".social",

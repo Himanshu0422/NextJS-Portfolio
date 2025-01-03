@@ -1,7 +1,4 @@
-import {
-  FaDocker,
-  FaNodeJs
-} from "react-icons/fa";
+import { FaDocker, FaNodeJs } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiExpress, SiMongodb, SiPrisma } from "react-icons/si";
 import styles from "./about.module.css";
@@ -45,16 +42,18 @@ const About = () => {
           <h1 className="text-3xl md:text-4xl font-semibold mb-4 bg-gradient-to-r from-[#e3e5c4] to-[#ff7f50] bg-clip-text text-transparent">
             About Me
           </h1>
-          <p className="text-sm md:text-base leading-relaxed font-light text-[#fff]">
+          <p className="text-base md:text-base leading-relaxed font-light text-[#fff]">
             I am Himanshu Mittal, a Full Stack Developer with a passion for
             crafting dynamic web applications and intuitive user interfaces.
             With expertise in programming languages such as C++, Java, and
             JavaScript, along with frameworks like React.js and Node.js, I focus
-            on delivering seamless user experiences. <span className="max-sm:hidden">My commitment to minimalism
-            drives my design philosophy, allowing me to create solutions that
-            are both functional and aesthetically pleasing.I thrive in
-            collaborative environments and am always eager to tackle new
-            challenges in coding and design.</span>
+            on delivering seamless user experiences.{" "}
+            <span className="max-sm:hidden">
+              My commitment to minimalism drives my design philosophy, allowing
+              me to create solutions that are both functional and aesthetically
+              pleasing.I thrive in collaborative environments and am always
+              eager to tackle new challenges in coding and design.
+            </span>
           </p>
         </div>
       </div>
