@@ -31,13 +31,27 @@ const useScrollNavigation = (
         gsap.fromTo(
           "#landing",
           { scale: 0.5, opacity: 0 },
-          { scale: 1, x: 0, opacity: 1, duration: 1, delay: 0.75, ease: "power2.out" }
+          {
+            scale: 1,
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            delay: 0.75,
+            ease: "power2.out",
+          }
         );
       } else if (index === 1) {
         gsap.fromTo(
           "#about",
           { scale: 0.5, x: -200, opacity: 0 },
-          { scale: 1, x: 0, opacity: 1, duration: 1, delay: 0.75, ease: "power2.out" }
+          {
+            scale: 1,
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            delay: 0.75,
+            ease: "power2.out",
+          }
         );
       } else if (index === 2) {
         const tl = gsap.timeline();
@@ -45,16 +59,23 @@ const useScrollNavigation = (
         gsap.set(`.card-0`, {
           opacity: 0,
           x: -100,
-          zIndex: -1
+          zIndex: -1,
         });
         gsap.set(`.card-0 .text-content-0`, {
-          opacity: 0
-        })
+          opacity: 0,
+        });
 
         tl.fromTo(
           `.image-container-0`,
           { zIndex: 2, y: 50, opacity: 0 },
-          { zIndex: 2, y: 0, opacity: 1, duration: 0.6, delay: 1, ease: "power2.out" }
+          {
+            zIndex: 2,
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            delay: 1,
+            ease: "power2.out",
+          }
         );
 
         tl.fromTo(
@@ -66,7 +87,13 @@ const useScrollNavigation = (
         tl.fromTo(
           `.card-0 .text-content-0`,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.15 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.15,
+          },
           "-=0.4"
         );
       } else if (index === 3) {
@@ -84,33 +111,41 @@ const useScrollNavigation = (
           }
         );
       } else if (index === 4) {
-        const categories = document.querySelectorAll('.skill-category');
-        const cards = document.querySelectorAll('.skill-card');
+        const categories = document.querySelectorAll(".skill-category");
+        const cards = document.querySelectorAll(".skill-card");
         const tl = gsap.timeline();
         if (window.innerWidth > 767) {
-          tl.fromTo(categories, {
-            opacity: 0,
-            x: 100,
-          }, {
-            opacity: 1,
-            x: 0,
-            duration: 0.75,
-            stagger: 0.4,
-            delay: 1,
-            ease: "elastic.out(1, 0.5)",
-          });
+          tl.fromTo(
+            categories,
+            {
+              opacity: 0,
+              x: 100,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.75,
+              stagger: 0.4,
+              delay: 1,
+              ease: "elastic.out(1, 0.5)",
+            }
+          );
         }
-        tl.fromTo(cards, {
-          opacity: 0,
-          y: 20,
-        }, {
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-          duration: 0.5,
-          stagger: 0.1,
-          delay: window.innerWidth < 768 ? 1 : 0
-        });
+        tl.fromTo(
+          cards,
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            duration: 0.5,
+            stagger: 0.1,
+            delay: window.innerWidth < 768 ? 1 : 0,
+          }
+        );
       } else if (index === 5) {
         const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
@@ -123,7 +158,13 @@ const useScrollNavigation = (
         tl.fromTo(
           ".absolute-bg",
           { opacity: 0, scale: 0.5 },
-          { opacity: 0.25, scale: 1, duration: 2, stagger: 0.15, ease: "power2.out" }
+          {
+            opacity: 0.25,
+            scale: 1,
+            duration: 2,
+            stagger: 0.15,
+            ease: "power2.out",
+          }
         );
 
         tl.fromTo(
@@ -141,7 +182,7 @@ const useScrollNavigation = (
 
         tl.fromTo(
           ".contact-card",
-          { opacity: 0, y: 40, },
+          { opacity: 0, y: 40 },
           { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power2.out" },
           "-=1"
         );
@@ -149,19 +190,34 @@ const useScrollNavigation = (
         tl.fromTo(
           "#form > *",
           { opacity: 0, x: 30, rotateY: -5 },
-          { opacity: 1, x: 0, rotateY: 0, duration: 1, stagger: 0.1, ease: "power2.out" }
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power2.out",
+          }
         );
 
         tl.fromTo(
           "#social-icons > *",
           { opacity: 0, scale: 0, y: 50 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power2.out" },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
           "-=0.5"
         );
       }
       gsap.set(sections[currentIndex], { zIndex: 0 });
       tl.to(divs[currentIndex], { yPercent: -100 * dFactor }).set(
-        sections[currentIndex], { autoAlpha: 0 }
+        sections[currentIndex],
+        { autoAlpha: 0 }
       );
     }
 
