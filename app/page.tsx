@@ -46,13 +46,19 @@ export default function Home() {
     debouncedDimensionCalculator();
     window.addEventListener("resize", debouncedDimensionCalculator);
 
-    return () => window.removeEventListener("resize", debouncedDimensionCalculator);
+    return () =>
+      window.removeEventListener("resize", debouncedDimensionCalculator);
   }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>("section");
     const divs = document.querySelectorAll<HTMLElement>(".bg");
-    const { navigateToSection: navigateFunc } = useScrollNavigation(sections, divs, setCurrentIndex, setPreviousIndex);
+    const { navigateToSection: navigateFunc } = useScrollNavigation(
+      sections,
+      divs,
+      setCurrentIndex,
+      setPreviousIndex
+    );
     setNavigateToSection(() => navigateFunc);
   }, [loading]);
 
@@ -62,8 +68,12 @@ export default function Home() {
     <>
       <Toaster position="top-center" />
       <Cursor isDesktop={isDesktop} />
-      <Sidebar isMenu={isMenu} />
-      <Navbar isMenu={isMenu} setIsMenu={setIsMenu} navigateToSection={navigateToSection} />
+      <Sidebar isMenu={isMenu} navigateToSection={navigateToSection} />
+      <Navbar
+        isMenu={isMenu}
+        setIsMenu={setIsMenu}
+        navigateToSection={navigateToSection}
+      />
       <Social currentIndex={currentIndex} previousIndex={previousIndex} />
       <section className="first h-screen w-full top-0 fixed">
         <Landing />
